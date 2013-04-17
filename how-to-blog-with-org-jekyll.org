@@ -58,7 +58,7 @@ You can find meanings of most of the options from org-mode's
 documentation. While those options that org-jekyll cares about are
 explained well on [[http://juanreyero.com/open/org-jekyll/][Juan's blog about org-jekyll]] :P
 
-** Write a blog
+** Blogging
 
 First, of course, write it in org-mode fashion. Second, add a tag
 named =:blog:= to the post so that org-jekyll can find it. Then, add a
@@ -74,7 +74,7 @@ look like,
 , :END:
 #+END_SRC
 
-** Publish
+** Publishing
 
 org-jekyll provides two interactive functions for publishing:
 =org-jekyll-export-blog= and =org-jekyll-export-current-entry=.
