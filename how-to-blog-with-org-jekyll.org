@@ -1,0 +1,92 @@
+#+OPTIONS: toc:nil h:4 num:nil
+
+* How to blog with org-jekyll                                          :blog:
+:PROPERTIES:
+:CATEGORY: org-mode
+:ON: <2013-04-17 Wed>
+:END:
+
+This is about how to write blogs using org-mode and to publish with
+jekyll. First, I'd like to thank [[https://github.com/juanre][Juan Reyero]] for his great work --
+[[https://github.com/juanre/org-jekyll][org-jekyll]] that glues org-mode and jekyll together perfectly.
+
+** Installation
+
+You can install org-jekyll by either download it fromg github or
+install with el-get like other elisps. Be sure that org-jekyll been
+loaded properly, for example,
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "/path/to/your/org-jekyll")
+(require 'org-jekyll)
+#+END_SRC
+
+** Configuration
+
+You need to setup a org probject for org-jekyll just like any other
+org projects except for a few options. Let's start with an example,
+
+#+BEGIN_SRC emacs-lisp
+;; tell org-jekyll where it can find the category of a post.
+(setq org-jekyll-category "CATEGORY")
+
+(setq nby/org-jekyll-base-directory "~/blog/source/")
+(setq nby/org-jekyll-publish "~/blog/publish/")
+(setq nby/site-root "http://jianingy.github.io")
+
+(add-to-list 'org-publish-project-alist
+             `("nby-blog"
+               :base-directory ,nby/org-jekyll-base-directory
+               :recursive t
+               :html-extension "html"
+               :base-extension "org"
+               :publishing-directory ,nby/org-jekyll-publish
+               :blog-publishing-directory ,nby/org-jekyll-publish
+               :site-root ,nby/site-root
+               :jekyll-sanitize-permalinks t
+               :publishing-function org-html-publish-to-html
+               :section-numbers nil
+               :headline-levels 4
+               :table-of-contents nil
+               :auto-index nil
+               :auto-preamble nil
+               :body-only t
+               :auto-postamble nil))
+#+END_SRC
+
+You can find meanings of most of the options from org-mode's
+documentation. While those options that org-jekyll cares about are
+explained well on [[http://juanreyero.com/open/org-jekyll/][Juan's blog about org-jekyll]] :P
+
+** Write a blog
+
+First, of course, write it in org-mode fashion. Second, add a tag
+named =:blog:= to the post so that org-jekyll can find it. Then, add a
+=on= property to your post with a value of the date of your post.
+Normally, you can do it with a shortcut =<C-!>=. The final post would
+look like,
+
+#+BEGIN_SRC org
+# * How to write blog with org-jekyll                                    :blog:
+# :PROPERTIES:
+# :CATEGORY: org-mode
+# :ON: <2013-04-17 Wed>
+# :END:
+#+END_SRC
+
+** Publish
+
+org-jekyll provides two interactive functions for publishing:
+=org-jekyll-export-blog= and =org-jekyll-export-current-entry=.
+
+With =org-jekyll-export-blog=, org-jekyll finds all the posts with
+=:blog:= tag and publish them. While with the other, org-jekyll
+only publish the post where your cursor is blinking on.
+
+
+** Working with org-mode 8.0 (ox-html)
+
+Starting from org-mode 8.0, the entire publishing infrastucture been
+replaced by ox- serial files. As a result, it breaks org-jekyll. So,
+if you are using org-mode 8.0 with ox-html, please git clone
+org-mode-8.0 branch from Juan's repository.

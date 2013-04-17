@@ -1,7 +1,0 @@
-* How to write blog with org-jekyll
-:PROPERTIES:
-:CATEGORY: org-mode
-:ON: <2013-04-17 Wed>
-:END:
-
-The story begins from ...
