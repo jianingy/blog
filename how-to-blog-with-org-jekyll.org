@@ -63,15 +63,15 @@ explained well on [[http://juanreyero.com/open/org-jekyll/][Juan's blog about or
 First, of course, write it in org-mode fashion. Second, add a tag
 named =:blog:= to the post so that org-jekyll can find it. Then, add a
 =on= property to your post with a value of the date of your post.
-Normally, you can do it with a shortcut =<C-!>=. The final post would
+Normally, you can do it with a shortcut =<C-c .>=. The final post would
 look like,
 
 #+BEGIN_SRC org
-# * How to write blog with org-jekyll                                    :blog:
-# :PROPERTIES:
-# :CATEGORY: org-mode
-# :ON: <2013-04-17 Wed>
-# :END:
+,* How to write blog with org-jekyll                                    :blog:
+,:PROPERTIES:
+,:CATEGORY: org-mode
+,:ON: <2013-04-17 Wed>
+,:END:
 #+END_SRC
 
 ** Publish
