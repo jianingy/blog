@@ -6,7 +6,7 @@
 :ON: <2013-04-26 Fri>
 :END:
 
-In my last blog, I introduced a way for publishing org-mode files
+In my last blog, I introduced a way of publishing org-mode files
 using org-jekyll. But it's not convenient enough. You still have to
 type some commands for generating and publishing. So, I've been
 working on it for a few days making a automation to eliminate those
