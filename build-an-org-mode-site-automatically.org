@@ -67,7 +67,8 @@ generate your blog automatically.
 scripts/build.sh
 #+END_SRC
 
-** One more step: Git Hook
+** More Steps
+*** One more step: Git Hook
 
 Though =org-jekyll-bootstrap= can do all that boring things for us,
 We still have to run it manually. To make this last step
@@ -90,3 +91,19 @@ Then, add a WebHook to your github repository,
 
 From now on, whenever you push commits to your repository, your site
 will be generated automatically.
+
+*** Htmlize Bug
+
+For some reason I don't know, =htmlize= cannot work in batch mode.
+That means if you run emacs in batch mode, you won't have those fancy
+highlighted source codes. Of course, you may find many ways to
+overcome this issue such as [[http://alexgorbatchev.com/SyntaxHighlighter/][SyntaxHighlighter]] or [[http://pygments.org/][Pygment]]. But, My
+solution is to run emacs in X window mode. It turns out that it
+doesn't need to actually install and start a real X server that
+consume resources. I run emacs within Xvfb, a dumb X server. It makes
+X apps feel like they are in graphic mode without real graphical
+output. Here is an example of starting emacs using Xvfb,
+
+#+BEGIN_SRC sh
+/usr/bin/xvfb-run emacs -q -l lisp/publish.el --eval "$lisp"
+#+END_SRC
