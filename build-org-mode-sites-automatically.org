@@ -1,6 +1,6 @@
 #+OPTIONS: toc:nil h:4 num:nil
 
-* Build an org-mode site automatically                                 :blog:
+* Build org-mode sites automatically                                   :blog:
 :PROPERTIES:
 :CATEGORY: org-mode
 :ON: <2013-04-26 Fri>
