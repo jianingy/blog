@@ -1,12 +1,12 @@
 #+OPTIONS: toc:nil h:4 num:nil
 
-* OCaml Tricks 1                                                       :blog:
+* OCaml Tricks: Matching with Curry                                    :blog:
 :PROPERTIES:
 :CATEGORY: OCaml
 :ON: <2013-05-12 Sun 20:19>
 :END:
 
-f = function... is a shortcut of f (x, y) = match (x, y). For
+f = function... is a shortcut of f x = match x. For
 instance,
 
 #+BEGIN_SRC ocaml
